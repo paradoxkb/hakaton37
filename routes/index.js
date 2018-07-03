@@ -10,11 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/get_trends?*', async function(req, res) {
     const stats = await getStats(req.query);
-
     let html = '';
 
     Object.keys(stats).map(k => {
-        html += `${k} - ${stats[k]}<br />`
+        html += `${k} - ${stats[k]}<br />`;
     });
 
     res.send(html);
