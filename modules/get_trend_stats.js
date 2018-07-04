@@ -2,7 +2,6 @@
  * Created by watcher on 7/3/18.
  */
 const googleTrends = require('google-trends-api');
-const _ = require('lodash');
 
 function getDataByType(type, resource, params = {}) {
     let result = {};
@@ -30,6 +29,8 @@ function getDataByType(type, resource, params = {}) {
 module.exports = async(params) => {
     const dataType = params.resolution ? 'region' : 'time';
     let requestData = [];
+
+    // TODO: sort, validation for params
 
     if (params.startTime) params.startTime = new Date(params.startTime);
     if (params.endTime) params.endTime = new Date(params.endTime);
